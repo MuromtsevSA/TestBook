@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using TestBook.Model;
+using TestBook.ViewModel;
+
+namespace TestBook.View
+{
+    /// <summary>
+    /// Interaction logic for EditBookView.xaml
+    /// </summary>
+    public partial class AddBookView : Window
+    {
+        private readonly BookContext _db;
+        public AddBookView(BookContext db)
+        {
+            _db = db;
+            InitializeComponent();
+            DataContext = new AddBookViewModel(_db);
+        }
+    }
+}
